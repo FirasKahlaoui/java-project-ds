@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDashboard {
@@ -29,7 +30,7 @@ public class UserDashboard {
                 new UserDashboard().specialityChoice(userEmail);
             } else {
                 // User has valid data, so load clubChoice
-                new UserDashboard().clubChoice();
+                new UserDashboard().clubChoice(userEmail);
             }
         } else {
             JOptionPane.showMessageDialog(frame, "Invalid arguments.");
@@ -56,7 +57,7 @@ public class UserDashboard {
     }
 
     private void specialityChoice(String userEmail) {
-        JFrame frame = new JFrame("Club Managing System ");
+        JFrame frame = new JFrame("CMS - Speciality Choice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 240);
         frame.getContentPane().setBackground(Color.WHITE);
@@ -67,6 +68,7 @@ public class UserDashboard {
         panel.add(ageTextField);
         panel.add(new JLabel("Speciality:"));
         String[] specialities = {
+                "-- Select a speciality --",
                 "Big Data Analytics",
                 "Full Stack Development",
                 "Machine Learning and Artificial Intelligence",
@@ -97,7 +99,7 @@ public class UserDashboard {
                 String age = ageTextField.getText();
                 String speciality = (String) specialityComboBox.getSelectedItem();
 
-                if (age.length() == 0 || speciality.length() == 0) {
+                if (age.length() == 0 || speciality.equals("-- Select a speciality --")) {
                     JOptionPane.showMessageDialog(frame, "All fields must be filled out.");
                     return;
                 }
@@ -112,7 +114,7 @@ public class UserDashboard {
 
                     updateUserData(userEmail, ageValue, speciality);
 
-                    clubChoice();
+                    clubChoice(userEmail);
 
                     frame.dispose();
                 } catch (NumberFormatException ex) {
@@ -143,8 +145,8 @@ public class UserDashboard {
         }
     }
 
-    private void clubChoice() {
-        JFrame frame = new JFrame("Club Managing System ");
+    private void clubChoice(String userEmail) {
+        JFrame frame = new JFrame("CMS - Club Choice ");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 240);
         frame.getContentPane().setBackground(Color.WHITE);
@@ -158,6 +160,7 @@ public class UserDashboard {
         panel.add(title);
 
         String[] clubs = {
+                "-- Select a club --",
                 "Coding Wizards",
                 "Green Earth Society",
                 "Musical Harmony",
@@ -186,6 +189,56 @@ public class UserDashboard {
             }
         });
 
+        SubscribeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String club = (String) clubComboBox.getSelectedItem();
+                int optionIndex = clubComboBox.getSelectedIndex();
+
+                if (club.equals("-- Select a club --")) {
+                    JOptionPane.showMessageDialog(frame, "Please select a club.");
+                    return;
+                }
+
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
+                            "root", "");
+
+                    PreparedStatement ps = connection.prepareStatement("SELECT CIN FROM user WHERE Mail_Address = ?");
+                    ps.setString(1, userEmail);
+                    ResultSet rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        String CIN = rs.getString("CIN");
+
+                        // Check if the user is already subscribed to the club
+                        ps = connection.prepareStatement("SELECT * FROM participate WHERE CIN = ? AND NumClub = ?");
+                        ps.setString(1, CIN);
+                        ps.setInt(2, optionIndex);
+                        rs = ps.executeQuery();
+
+                        if (rs.next()) {
+                            JOptionPane.showMessageDialog(frame, "You are already subscribed to " + club + ".");
+                        } else {
+                            // Subscribe the user to the club
+                            ps = connection
+                                    .prepareStatement("INSERT INTO participate (NumClub,CIN, Date) VALUES (?, ?, ?)");
+                            ps.setInt(1, optionIndex);
+                            ps.setString(2, CIN);
+                            ps.setDate(3, new java.sql.Date(System.currentTimeMillis()));
+                            ps.executeUpdate();
+
+                            JOptionPane.showMessageDialog(frame, "You have subscribed to " + club + ".");
+                        }
+                    }
+
+                    connection.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(frame, "An error occurred: " + ex.getMessage());
+                    ex.printStackTrace();
+                }
+            }
+        });
         frame.add(panel);
         frame.setVisible(true);
     }
