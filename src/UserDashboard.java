@@ -124,7 +124,6 @@ public class UserDashboard {
         });
 
         frame.add(panel);
-        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
