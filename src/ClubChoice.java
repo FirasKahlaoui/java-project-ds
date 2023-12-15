@@ -96,6 +96,8 @@ public class ClubChoice {
                             ps.executeUpdate();
 
                             JOptionPane.showMessageDialog(frame, "You have subscribed to " + club + ".");
+                            UserDash.main(new String[] { userEmail });
+                            frame.dispose();
                         }
                     }
 

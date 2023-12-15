@@ -15,6 +15,11 @@ public class UnsubscribeClub {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JComboBox<String> clubComboBox = new JComboBox<>();
+        clubComboBox.setPreferredSize(new Dimension(400, 70));
+        clubComboBox.setMaximumSize(new Dimension(400, 70));
+        clubComboBox.setFont(new Font("Arial", Font.BOLD, 12));
+        clubComboBox.setBackground(Color.WHITE);
+
         panel.add(clubComboBox);
 
         try {
@@ -54,16 +59,56 @@ public class UnsubscribeClub {
 
         JButton unsubscribeButton = createStyledButton("Unsubscribe");
         unsubscribeButton.addActionListener(e -> {
-            // Unsubscribe logic here
+            String selectedClub = (String) clubComboBox.getSelectedItem();
+            if (selectedClub != null) {
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
+                            "root", "");
+
+                    PreparedStatement ps = connection
+                            .prepareStatement("SELECT CIN FROM user WHERE Mail_Address = ?");
+                    ps.setString(1, userEmail);
+                    ResultSet rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        String cin = rs.getString("CIN");
+
+                        ps = connection.prepareStatement(
+                                "SELECT NumClub FROM club WHERE NameClub = ?");
+                        ps.setString(1, selectedClub);
+                        rs = ps.executeQuery();
+
+                        if (rs.next()) {
+                            String numClub = rs.getString("NumClub");
+
+                            ps = connection.prepareStatement(
+                                    "DELETE FROM participate WHERE CIN = ? AND NumClub = ?");
+                            ps.setString(1, cin);
+                            ps.setString(2, numClub);
+                            ps.executeUpdate();
+                            JOptionPane.showMessageDialog(frame, "You have unsubscribed from " + selectedClub);
+                            UserDash.main(new String[] { userEmail });
+                            frame.dispose();
+                        }
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
         });
 
         JButton backButton = createStyledButton("Back");
         backButton.addActionListener(e -> {
-            // Back logic here
+            UserDash.main(new String[] { userEmail });
+            frame.dispose();
         });
 
-        panel.add(unsubscribeButton);
-        panel.add(backButton);
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
+        buttonPanel.add(backButton);
+        buttonPanel.add(unsubscribeButton);
+
+        frame.add(panel, BorderLayout.CENTER);
+        frame.add(buttonPanel, BorderLayout.PAGE_END);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setVisible(true);

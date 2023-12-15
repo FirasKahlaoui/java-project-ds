@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
 
 public class UserDash {
     public static void main(String[] args) {
@@ -21,7 +20,7 @@ public class UserDash {
         JButton changeData = createStyledButton("Change User Data");
         JButton changePassword = createStyledButton("Change Password");
         JButton deleteAccount = createStyledButton("Delete Account");
-        JButton logout = createStyledButton("Logout");
+        JButton logout = createStyledButton("Log Out");
 
         showData.addActionListener(new ActionListener() {
             @Override
