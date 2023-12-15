@@ -66,8 +66,18 @@ public class UserSignUp {
                     return;
                 }
 
-                if (cin.length() != 8 || (cin.charAt(0) != '0' && cin.charAt(0) != '1')) {
+                if (!cin.matches("[0-9]+") || cin.length() != 8 || (cin.charAt(0) != '0' && cin.charAt(0) != '1')) {
                     JOptionPane.showMessageDialog(frame, "CIN must be 8 characters long and start with 0 or 1.");
+                    return;
+                }
+                if (firstName.length() < 3 || !firstName.matches("[a-zA-Z]+")) {
+                    JOptionPane.showMessageDialog(frame,
+                            "First name must be at least 3 characters long and contain only letters.");
+                    return;
+                }
+                if (lastName.length() < 3 || !lastName.matches("[a-zA-Z]+")) {
+                    JOptionPane.showMessageDialog(frame,
+                            "Last name must be at least 3 characters long and contain only letters.");
                     return;
                 }
 
@@ -78,12 +88,6 @@ public class UserSignUp {
 
                 if (password.length() < 6) {
                     JOptionPane.showMessageDialog(frame, "Password must be at least 6 characters long.");
-                    return;
-                }
-
-                if (firstName.length() < 3 || lastName.length() < 3) {
-                    JOptionPane.showMessageDialog(frame,
-                            "First Name and Last Name must be at least 3 characters long.");
                     return;
                 }
 
