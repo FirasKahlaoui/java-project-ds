@@ -44,6 +44,14 @@ public class AdminDashboard {
                 frame.dispose();
             }
         });
+
+        deleteUser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DeleteUser.main(new String[] {});
+                frame.dispose();
+            }
+        });
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
