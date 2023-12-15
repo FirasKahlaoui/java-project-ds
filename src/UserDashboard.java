@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -51,15 +49,5 @@ public class UserDashboard {
             e.printStackTrace();
         }
         return false;
-    }
-
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 16));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
     }
 }
