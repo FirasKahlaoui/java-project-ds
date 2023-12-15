@@ -19,11 +19,35 @@ public class AdminDashboard {
         JButton showSpeciality = createStyledButton("Show Speciality Members");
         JButton changeUserPws = createStyledButton("Change User Password");
         JButton deleteUser = createStyledButton("Delete User");
-
         JButton logOutButton = createStyledButton("Log Out");
+
+        addUserButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddUser.main(new String[] {});
+                frame.dispose();
+            }
+        });
+
+        showSpeciality.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ShowMemberSpeciality.main(new String[] {});
+                frame.dispose();
+            }
+        });
+
+        changeUserPws.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ChangeUserPws.main(new String[] {});
+                frame.dispose();
+            }
+        });
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(frame, "You have been logged out");
                 AdminLogin.main(new String[] {});
                 frame.dispose();
             }
