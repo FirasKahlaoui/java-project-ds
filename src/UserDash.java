@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class UserDash {
     public static void main(String[] args) {
@@ -71,16 +72,31 @@ public class UserDash {
             }
         });
 
-        /*
-         * deleteAccount.addActionListener(new ActionListener() {
-         * 
-         * @Override
-         * public void actionPerformed(ActionEvent e) {
-         * DeleteAccount.main(new String[] { userEmail });
-         * frame.dispose();
-         * }
-         * });
-         */
+        deleteAccount.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int response = JOptionPane.showConfirmDialog(frame, "Do you want to delete your account?", "Confirm",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+                if (response == JOptionPane.YES_OPTION) {
+                    try {
+                        Connection connection = DriverManager.getConnection(
+                                "jdbc:mysql://localhost:3306/club_management",
+                                "root", "");
+
+                        PreparedStatement ps = connection
+                                .prepareStatement("DELETE FROM user WHERE Mail_Address = ?");
+                        ps.setString(1, userEmail);
+                        ps.executeUpdate();
+                        JOptionPane.showMessageDialog(frame, "Your account has been deleted.");
+                        UserLogin.main(new String[] { userEmail });
+                        frame.dispose();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
 
         logout.addActionListener(new ActionListener() {
             @Override

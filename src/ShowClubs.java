@@ -26,7 +26,7 @@ public class ShowClubs {
                 String cin = rs.getString("CIN");
 
                 ps = connection.prepareStatement(
-                        "SELECT NumClub FROM participate WHERE CIN = ?");
+                        "SELECT NumClub, Date FROM participate WHERE CIN = ?");
                 ps.setString(1, cin);
                 rs = ps.executeQuery();
 
@@ -35,6 +35,7 @@ public class ShowClubs {
                 while (rs.next()) {
                     hasClubs = true;
                     String numClub = rs.getString("NumClub");
+                    Date date = rs.getDate("Date");
 
                     ps = connection.prepareStatement(
                             "SELECT NameClub, Type FROM club WHERE NumClub = ?");
@@ -42,17 +43,18 @@ public class ShowClubs {
                     ResultSet rsClub = ps.executeQuery();
 
                     if (rsClub.next()) {
-                        String clubInfo = "Name: " + rsClub.getString("NameClub")
-                                + " Type: " + rsClub.getString("Type");
+                        String clubInfo = "<html><h2>" + rsClub.getString("NameClub") + "</h2>"
+                                + "<p><b>Type:</b> " + rsClub.getString("Type") + "</p>"
+                                + "<p><b>Date:</b> " + date + "</p></html>";
                         JLabel clubLabel = new JLabel(clubInfo);
-                        clubLabel.setFont(new Font("Arial", Font.PLAIN, 14)); 
+                        clubLabel.setFont(new Font("Arial", Font.PLAIN, 14));
                         panel.add(clubLabel);
                     }
                 }
 
                 if (!hasClubs) {
                     JLabel messageLabel = new JLabel("You are not subscribed to any clubs.");
-                    messageLabel.setFont(new Font("Arial", Font.PLAIN, 14)); 
+                    messageLabel.setFont(new Font("Arial", Font.PLAIN, 14));
                     panel.add(messageLabel);
                 }
             }
@@ -62,7 +64,10 @@ public class ShowClubs {
                 UserDash.main(new String[] { userEmail });
                 frame.dispose();
             });
-            frame.add(panel, BorderLayout.CENTER);
+            JScrollPane scrollPane = new JScrollPane(panel,
+                    JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                    JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            frame.add(scrollPane, BorderLayout.CENTER);
             frame.add(doneButton, BorderLayout.PAGE_END);
             frame.setVisible(true);
         } catch (SQLException ex) {
