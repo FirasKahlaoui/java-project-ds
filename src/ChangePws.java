@@ -27,7 +27,7 @@ public class ChangePws {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
+                UserDash.main(new String[] { userEmail });
                 frame.dispose();
             }
         });

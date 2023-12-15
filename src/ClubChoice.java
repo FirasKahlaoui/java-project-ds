@@ -45,16 +45,15 @@ public class ClubChoice {
         JComboBox<String> clubComboBox = new JComboBox<>(clubs);
         panel.add(clubComboBox);
 
-        JButton LogOutButton = createStyledButton("Log Out");
+        JButton Back = createStyledButton("Back");
         JButton SubscribeButton = createStyledButton("Subscribe");
         panel.add(SubscribeButton);
-        panel.add(LogOutButton);
+        panel.add(Back);
 
-        LogOutButton.addActionListener(new ActionListener() {
+        Back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "You have been logged out.");
-                UserLogin.main(new String[] {});
+                UserDash.main(new String[] { userEmail });
                 frame.dispose();
             }
         });

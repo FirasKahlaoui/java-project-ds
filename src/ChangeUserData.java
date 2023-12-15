@@ -61,6 +61,7 @@ public class ChangeUserData {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                UserDash.main(new String[] { userEmail });
                 frame.dispose();
             }
         });
@@ -113,6 +114,7 @@ public class ChangeUserData {
                     ps.executeUpdate();
 
                     JOptionPane.showMessageDialog(frame, "User data updated successfully.");
+                    UserDash.main(new String[] { userEmail });
                     frame.dispose();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(frame,

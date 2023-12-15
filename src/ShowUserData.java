@@ -9,14 +9,14 @@ public class ShowUserData {
         String userEmail = args[0];
         JFrame frame = new JFrame("CMS - User Informations");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 280);
+        frame.setSize(400, 300);
         frame.getContentPane().setBackground(Color.WHITE);
         JPanel panel = new JPanel(new GridLayout(8, 2, 10, 10));
         JButton backButton = createStyledButton("Done");
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
+                UserDash.main(new String[] { userEmail });
                 frame.dispose();
             }
         });
@@ -39,6 +39,7 @@ public class ShowUserData {
                 String speciality = rs.getString("Speciality");
 
                 JPasswordField passwordField = new JPasswordField(password);
+                passwordField.setEditable(false);
                 passwordField.setEchoChar('*');
                 JButton showPasswordButton = createStyledButton("Show Password");
                 showPasswordButton.addActionListener(new ActionListener() {
@@ -83,11 +84,10 @@ public class ShowUserData {
 
     private static JButton createStyledButton(String text) {
         JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button.setBackground(Color.WHITE);
         button.setForeground(Color.BLACK);
         button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(100, 50));
+        button.setPreferredSize(new Dimension(button.getPreferredSize().width, 60));
         return button;
     }
 }

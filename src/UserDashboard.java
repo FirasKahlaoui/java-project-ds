@@ -27,7 +27,7 @@ public class UserDashboard {
             if (loadUserData(userEmail)) {
                 SpecialityChoice.main(new String[] { userEmail });
             } else {
-                ClubChoice.main(new String[] { userEmail });
+                UserDash.main(new String[] { userEmail });
             }
         } else {
             JOptionPane.showMessageDialog(frame, "Invalid arguments.");
