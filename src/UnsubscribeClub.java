@@ -5,7 +5,7 @@ import java.sql.*;
 public class UnsubscribeClub {
     public static void main(String[] args) {
         String userEmail = args[0];
-        JFrame frame = new JFrame("Unsubscribe Club");
+        JFrame frame = new JFrame("User : Club Unsubscription");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
         frame.setLayout(new BorderLayout());

@@ -7,7 +7,7 @@ import java.sql.*;
 public class ChangeUserData {
     public static void main(String[] args) {
         String userEmail = args[0];
-        JFrame frame = new JFrame("Change User Data");
+        JFrame frame = new JFrame("User : Change User Data");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
 

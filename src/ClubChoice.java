@@ -16,7 +16,7 @@ public class ClubChoice {
 
     public static void main(String[] args) {
         String userEmail = args[0];
-        JFrame frame = new JFrame("CMS - Club Choice ");
+        JFrame frame = new JFrame("User : Club Subscription ");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 240);
         frame.getContentPane().setBackground(Color.WHITE);

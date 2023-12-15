@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class ShowUserData {
     public static void main(String[] args) {
         String userEmail = args[0];
-        JFrame frame = new JFrame("CMS - User Informations");
+        JFrame frame = new JFrame("User : Informations");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
         frame.getContentPane().setBackground(Color.WHITE);

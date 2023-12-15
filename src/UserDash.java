@@ -7,7 +7,7 @@ import java.sql.*;
 public class UserDash {
     public static void main(String[] args) {
         String userEmail = args[0];
-        JFrame frame = new JFrame("User Dashboard");
+        JFrame frame = new JFrame("CMS : User Dashboard");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
 

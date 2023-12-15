@@ -11,7 +11,7 @@ public class SpecialityChoice {
 
     public static void main(String[] args) {
         String userEmail = args[0];
-        JFrame frame = new JFrame("CMS - Speciality Choice");
+        JFrame frame = new JFrame("User : Speciality Choice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 240);
         frame.getContentPane().setBackground(Color.WHITE);

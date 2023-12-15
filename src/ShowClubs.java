@@ -5,7 +5,7 @@ import java.sql.*;
 public class ShowClubs {
     public static void main(String[] args) {
         String userEmail = args[0];
-        JFrame frame = new JFrame("Show Clubs");
+        JFrame frame = new JFrame("Club : Show Clubs");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
 

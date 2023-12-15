@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class ChangePws {
     public static void main(String[] args) {
         String userEmail = args[0];
-        JFrame frame = new JFrame("Change Password");
+        JFrame frame = new JFrame("User : Change Password");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 280);
         frame.getContentPane().setBackground(Color.WHITE);

@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class AdminDashboard {
     public static void main(String[] args) {
         JFrame frame = new JFrame("CMS : Admin Dashboard");
@@ -13,14 +14,14 @@ public class AdminDashboard {
         panel.setLayout(new GridLayout(6, 1));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JButton addStudentButton = new JButton("Add Student");
-        JButton addTeacherButton = new JButton("Add Teacher");
-        JButton addCourseButton = new JButton("Add Course");
-        JButton addClassroomButton = new JButton("Add Classroom");
-        JButton addSectionButton = new JButton("Add Section");
-        JButton previousPageButton = new JButton("Previous Page");
+        JButton addUserButton = createStyledButton("Add User");
+        JButton showClub = createStyledButton("Show Clubs Members");
+        JButton showSpeciality = createStyledButton("Show Speciality Members");
+        JButton changeUserPws = createStyledButton("Change User Password");
+        JButton deleteUser = createStyledButton("Delete User");
 
-        previousPageButton.addActionListener(new ActionListener() {
+        JButton logOutButton = createStyledButton("Log Out");
+        logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 AdminLogin.main(new String[] {});
@@ -28,16 +29,22 @@ public class AdminDashboard {
             }
         });
 
-
-        panel.add(addStudentButton);
-        panel.add(addTeacherButton);
-        panel.add(addCourseButton);
-        panel.add(addClassroomButton);
-        panel.add(addSectionButton);
-        panel.add(previousPageButton);
+        panel.add(addUserButton);
+        panel.add(showClub);
+        panel.add(showSpeciality);
+        panel.add(changeUserPws);
+        panel.add(deleteUser);
+        panel.add(logOutButton);
 
         frame.add(panel);
         frame.setVisible(true);
     }
-    
+
+    private static JButton createStyledButton(String text) {
+        JButton button = new JButton(text);
+        button.setBackground(Color.WHITE);
+        button.setForeground(Color.BLACK);
+        button.setFont(new Font("Arial", Font.BOLD, 12));
+        return button;
+    }
 }
