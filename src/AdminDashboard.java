@@ -14,13 +14,13 @@ public class AdminDashboard {
         panel.setLayout(new GridLayout(7, 1));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JButton addUserButton = createStyledButton("Add User");
-        JButton showUserInfo = createStyledButton("Show User Info");
-        JButton showClub = createStyledButton("Show Clubs Members");
-        JButton showSpeciality = createStyledButton("Show Speciality Members");
-        JButton changeUserPws = createStyledButton("Change User Password");
-        JButton deleteUser = createStyledButton("Delete User");
-        JButton logOutButton = createStyledButton("Log Out");
+        JButton addUserButton = ButtonUtils.createStyledButton("Add User", 12);
+        JButton showUserInfo = ButtonUtils.createStyledButton("Show User Info", 12);
+        JButton showClub = ButtonUtils.createStyledButton("Show Clubs Members", 12);
+        JButton showSpeciality = ButtonUtils.createStyledButton("Show Speciality Members", 12);
+        JButton changeUserPws = ButtonUtils.createStyledButton("Change User Password", 12);
+        JButton deleteUser = ButtonUtils.createStyledButton("Delete User", 12);
+        JButton logOutButton = ButtonUtils.createStyledButton("Log Out", 12);
 
         addUserButton.addActionListener(new ActionListener() {
             @Override
@@ -90,11 +90,4 @@ public class AdminDashboard {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        return button;
-    }
 }

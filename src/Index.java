@@ -11,7 +11,7 @@ public class Index {
         frame.getContentPane().setBackground(Color.WHITE);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(6, 1));
+        panel.setLayout(new GridLayout(7, 1));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel.setBackground(Color.WHITE);
 
@@ -21,9 +21,15 @@ public class Index {
         title.setForeground(Color.BLACK);
         title.setBackground(Color.WHITE);
 
-        JButton adminButton = createStyledButton("Admin");
+        JLabel authors = new JLabel("By : Firas Kahlaoui & Yasmine Zatour  : 2 BD 1");
+        authors.setFont(new Font("Arial", Font.BOLD, 14));
+        authors.setAlignmentX(Component.CENTER_ALIGNMENT);
+        authors.setForeground(Color.BLACK);
+        authors.setBackground(Color.WHITE);
 
-        JButton userButton = createStyledButton("User");
+        JButton adminButton = ButtonUtils.createStyledButton("Admin", 16);
+
+        JButton userButton = ButtonUtils.createStyledButton("User", 16);
 
         userButton.addActionListener(new ActionListener() {
             @Override
@@ -45,18 +51,10 @@ public class Index {
         panel.add(adminButton);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
         panel.add(userButton);
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        panel.add(authors);
 
         frame.add(panel);
         frame.setVisible(true);
-    }
-
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 16));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
     }
 }

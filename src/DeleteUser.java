@@ -18,8 +18,8 @@ public class DeleteUser {
         JTextField cinField = new JTextField(20);
         cinField.setBorder(BorderFactory.createTitledBorder("User CIN"));
 
-        JButton deleteButton = createStyledButton("Delete");
-        JButton backButton = createStyledButton("Back");
+        JButton deleteButton = ButtonUtils.createStyledButton("Delete", 12);
+        JButton backButton = ButtonUtils.createStyledButton("Back", 12);
 
         deleteButton.addActionListener(new ActionListener() {
             @Override
@@ -71,14 +71,6 @@ public class DeleteUser {
         panel.add(backButton);
         frame.add(panel);
         frame.setVisible(true);
-    }
-
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        return button;
     }
 
 }

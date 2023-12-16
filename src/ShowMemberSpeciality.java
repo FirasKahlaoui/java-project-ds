@@ -30,8 +30,8 @@ public class ShowMemberSpeciality {
         specialityComboBox.setFont(new Font("Arial", Font.PLAIN, 14));
         specialityComboBox.setBackground(Color.WHITE);
 
-        JButton backButton = createStyledButton("Back");
-        JButton showMembers = createStyledButton("Show Members");
+        JButton backButton = ButtonUtils.createStyledButton("Back", 12);
+        JButton showMembers = ButtonUtils.createStyledButton("Show Members", 12);
 
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -91,7 +91,7 @@ public class ShowMemberSpeciality {
                         JScrollPane scrollPane = new JScrollPane(panel,
                                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-                        JButton doneButton = createStyledButton("Done");
+                        JButton doneButton = ButtonUtils.createStyledButton("Done", 12);
                         JFrame infoFrame = new JFrame("Member Information");
                         infoFrame.setSize(400, 240);
                         infoFrame.add(scrollPane);
@@ -123,13 +123,4 @@ public class ShowMemberSpeciality {
 
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 16));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
-    }
 }

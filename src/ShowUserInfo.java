@@ -12,7 +12,7 @@ public class ShowUserInfo {
         frame.setSize(400, 300);
         frame.getContentPane().setBackground(Color.WHITE);
         JPanel panel = new JPanel(new GridLayout(8, 2, 10, 10));
-        JButton backButton = createStyledButton("Done");
+        JButton backButton = ButtonUtils.createStyledButton("Done", 12);
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,7 +41,7 @@ public class ShowUserInfo {
                 JPasswordField passwordField = new JPasswordField(password);
                 passwordField.setEditable(false);
                 passwordField.setEchoChar('*');
-                JButton showPasswordButton = createStyledButton("Show Password");
+                JButton showPasswordButton = ButtonUtils.createStyledButton("Show Password", 12);
                 showPasswordButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -82,12 +82,4 @@ public class ShowUserInfo {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(button.getPreferredSize().width, 60));
-        return button;
-    }
 }

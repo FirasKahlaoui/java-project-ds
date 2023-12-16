@@ -20,8 +20,8 @@ public class ChangeUserPws {
         JTextField passwordField = new JTextField(20);
         passwordField.setBorder(BorderFactory.createTitledBorder("New Password"));
 
-        JButton changeButton = createStyledButton("Change Password");
-        JButton backPage = createStyledButton("Back");
+        JButton changeButton = ButtonUtils.createStyledButton("Change Password", 12);
+        JButton backPage = ButtonUtils.createStyledButton("Back", 12);
 
         backPage.addActionListener(new ActionListener() {
             @Override
@@ -87,11 +87,4 @@ public class ChangeUserPws {
 
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        return button;
-    }
 }

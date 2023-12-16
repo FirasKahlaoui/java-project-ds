@@ -57,7 +57,7 @@ public class ChangeUserData {
             ex.printStackTrace();
         }
 
-        JButton backButton = createStyledButton("Back");
+        JButton backButton = ButtonUtils.createStyledButton("Back", 12);
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,7 +66,7 @@ public class ChangeUserData {
             }
         });
 
-        JButton confirmButton = createStyledButton("Confirm");
+        JButton confirmButton = ButtonUtils.createStyledButton("Confirm", 12);
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -138,13 +138,4 @@ public class ChangeUserData {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
-    }
 }

@@ -57,7 +57,7 @@ public class UnsubscribeClub {
             ex.printStackTrace();
         }
 
-        JButton unsubscribeButton = createStyledButton("Unsubscribe");
+        JButton unsubscribeButton = ButtonUtils.createStyledButton("Unsubscribe", 12);
         unsubscribeButton.addActionListener(e -> {
             String selectedClub = (String) clubComboBox.getSelectedItem();
             if (selectedClub != null) {
@@ -97,7 +97,7 @@ public class UnsubscribeClub {
             }
         });
 
-        JButton backButton = createStyledButton("Back");
+        JButton backButton = ButtonUtils.createStyledButton("Back", 12);
         backButton.addActionListener(e -> {
             UserDash.main(new String[] { userEmail });
             frame.dispose();
@@ -114,12 +114,4 @@ public class UnsubscribeClub {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(button.getPreferredSize().width, 60));
-        return button;
-    }
 }

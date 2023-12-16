@@ -14,14 +14,14 @@ public class UserDash {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 2, 10, 10));
 
-        JButton showData = createStyledButton("User Info");
-        JButton showClub = createStyledButton("Show Clubs");
-        JButton clubSubscribe = createStyledButton("Subscribe to a Club");
-        JButton clubUnsubscribe = createStyledButton("Unsubscribe from a Club");
-        JButton changeData = createStyledButton("Change User Data");
-        JButton changePassword = createStyledButton("Change Password");
-        JButton deleteAccount = createStyledButton("Delete Account");
-        JButton logout = createStyledButton("Log Out");
+        JButton showData = ButtonUtils.createStyledButton("User Info", 12);
+        JButton showClub = ButtonUtils.createStyledButton("Show Clubs", 12);
+        JButton clubSubscribe = ButtonUtils.createStyledButton("Subscribe to a club", 12);
+        JButton clubUnsubscribe = ButtonUtils.createStyledButton("Unsubscribe from a club", 12);
+        JButton changeData = ButtonUtils.createStyledButton("Change User Data", 12);
+        JButton changePassword = ButtonUtils.createStyledButton("Change Password", 12);
+        JButton deleteAccount = ButtonUtils.createStyledButton("Delete Account", 12);
+        JButton logout = ButtonUtils.createStyledButton("Logout", 12);
 
         showData.addActionListener(new ActionListener() {
             @Override
@@ -120,11 +120,4 @@ public class UserDash {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        return button;
-    }
 }

@@ -45,8 +45,8 @@ public class ClubChoice {
         JComboBox<String> clubComboBox = new JComboBox<>(clubs);
         panel.add(clubComboBox);
 
-        JButton Back = createStyledButton("Back");
-        JButton SubscribeButton = createStyledButton("Subscribe");
+        JButton Back = ButtonUtils.createStyledButton("Back", 16);
+        JButton SubscribeButton = ButtonUtils.createStyledButton("Subscribe", 16);
         panel.add(SubscribeButton);
         panel.add(Back);
 
@@ -112,13 +112,4 @@ public class ClubChoice {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 16));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
-    }
 }

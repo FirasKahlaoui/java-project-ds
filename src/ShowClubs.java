@@ -59,7 +59,7 @@ public class ShowClubs {
                 }
             }
 
-            JButton doneButton = createStyledButton("Done");
+            JButton doneButton = ButtonUtils.createStyledButton("Done", 12);
             doneButton.addActionListener(e -> {
                 UserDash.main(new String[] { userEmail });
                 frame.dispose();
@@ -75,12 +75,4 @@ public class ShowClubs {
         }
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(button.getPreferredSize().width, 40));
-        return button;
-    }
 }

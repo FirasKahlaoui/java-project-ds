@@ -33,8 +33,8 @@ public class SpecialityChoice {
         JComboBox<String> specialityComboBox = new JComboBox<>(specialities);
         panel.add(specialityComboBox);
 
-        JButton LogOutButton = createStyledButton("Log Out");
-        JButton NextButton = createStyledButton("Next");
+        JButton LogOutButton = ButtonUtils.createStyledButton("Log Out", 12);
+        JButton NextButton = ButtonUtils.createStyledButton("Next", 12);
         panel.add(LogOutButton);
         panel.add(NextButton);
 
@@ -67,7 +67,7 @@ public class SpecialityChoice {
                     }
 
                     updateUserData(userEmail, ageValue, speciality);
-                    ClubChoice.main(new String[] { userEmail });
+                    UserDash.main(new String[] { userEmail });
 
                     frame.dispose();
                 } catch (NumberFormatException ex) {
@@ -97,13 +97,4 @@ public class SpecialityChoice {
         }
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 16));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
-    }
 }

@@ -39,8 +39,8 @@ public class UserSignUp {
 
         JLabel loginText = new JLabel("Already have an account?");
 
-        JButton signUpButton = createStyledButton("Sign Up");
-        JButton LoginPageButton = createStyledButton("Login Page");
+        JButton signUpButton = ButtonUtils.createStyledButton("Sign Up",12);
+        JButton LoginPageButton = ButtonUtils.createStyledButton("Login Page",12);
 
         LoginPageButton.addActionListener(new ActionListener() {
             @Override
@@ -56,7 +56,7 @@ public class UserSignUp {
                 String cin = CinField.getText();
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
-                String email = emailField.getText();
+                String email = emailField.getText().trim();
                 String password = new String(passwordField.getPassword());
                 String confirmPassword = new String(confirmPasswordField.getPassword());
 
@@ -100,8 +100,6 @@ public class UserSignUp {
 
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-
-                    // Connect to the database
                     try {
                         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management", "root", "");
                     } catch (SQLException ex) {
@@ -109,8 +107,6 @@ public class UserSignUp {
                         JOptionPane.showMessageDialog(frame, "Error connecting to the database.");
                         return;
                     }
-
-                    // Check if the CIN or email already exist in the database
                     String sql = "SELECT * FROM user WHERE CIN =? OR Mail_Address =?";
                     try {
                         stmt = conn.prepareStatement(sql);
@@ -129,7 +125,6 @@ public class UserSignUp {
                         return;
                     }
 
-                    // Create a new user record
                     sql = "INSERT INTO user (CIN, Name, LastName, Mail_Address, Password) VALUES (?,?,?,?,?)";
                     try {
                         stmt = conn.prepareStatement(sql);
@@ -138,8 +133,6 @@ public class UserSignUp {
                         stmt.setString(3, lastName);
                         stmt.setString(4, email);
                         stmt.setString(5, password);
-
-                        // Execute the query
                         stmt.executeUpdate();
                     } catch (SQLException ex) {
                         ex.printStackTrace();
@@ -155,7 +148,6 @@ public class UserSignUp {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(frame, "Error loading the JDBC driver.");
                 } finally {
-                    // Close the connection
                     if (conn != null) {
                         try {
                             conn.close();
@@ -183,13 +175,4 @@ public class UserSignUp {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
-    }
 }

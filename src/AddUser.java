@@ -43,8 +43,8 @@ public class AddUser {
         };
         JComboBox<String> specialityComboBox = new JComboBox<>(specialities);
 
-        JButton addButton = createStyledButton("Add User");
-        JButton backPage = createStyledButton("Back");
+        JButton addButton = ButtonUtils.createStyledButton("Add User", 12);
+        JButton backPage = ButtonUtils.createStyledButton("Back", 12);
 
         backPage.addActionListener(new ActionListener() {
             @Override
@@ -61,7 +61,7 @@ public class AddUser {
                 String cin = CinField.getText();
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
-                String email = emailField.getText();
+                String email = emailField.getText().trim();
                 String password = new String(passwordField.getPassword());
                 String age = ageField.getText();
                 String speciality = (String) specialityComboBox.getSelectedItem();
@@ -183,13 +183,4 @@ public class AddUser {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
-    }
 }

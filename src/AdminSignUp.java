@@ -43,7 +43,7 @@ public class AdminSignUp {
             public void actionPerformed(ActionEvent e) {
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
-                String email = emailField.getText();
+                String email = emailField.getText().trim();
                 String password = new String(passwordField.getPassword());
                 String confirmPassword = new String(confirmPasswordField.getPassword());
 
@@ -77,10 +77,8 @@ public class AdminSignUp {
                 PreparedStatement stmt = null;
 
                 try {
-                    // Load the JDBC driver
                     Class.forName("com.mysql.cj.jdbc.Driver");
 
-                    // Connect to the database
                     try {
                         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management", "root", "");
                     } catch (SQLException ex) {
@@ -89,7 +87,6 @@ public class AdminSignUp {
                         return;
                     }
 
-                    // Check if the CIN or email already exist in the database
                     String sql = "SELECT * FROM admin WHERE Email_Address =?";
                     try {
                         stmt = conn.prepareStatement(sql);
@@ -107,7 +104,6 @@ public class AdminSignUp {
                         return;
                     }
 
-                    // Create a new user record
                     sql = "INSERT INTO admin (FirstName, LastName, Email_Address, Password) VALUES (?,?,?,?)";
                     try {
                         stmt = conn.prepareStatement(sql);
@@ -116,7 +112,6 @@ public class AdminSignUp {
                         stmt.setString(3, email);
                         stmt.setString(4, password);
 
-                        // Execute the query
                         stmt.executeUpdate();
                     } catch (SQLException ex) {
                         ex.printStackTrace();

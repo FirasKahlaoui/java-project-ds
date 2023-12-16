@@ -19,8 +19,8 @@ public class ChangePws {
         newPasswordField.setBorder(BorderFactory.createTitledBorder("Password"));
         JPasswordField confirmNewPasswordField = new JPasswordField(20);
         confirmNewPasswordField.setBorder(BorderFactory.createTitledBorder("Confirm Password"));
-        JButton changePasswordButton = createStyledButton("Change Password");
-        JButton backButton = createStyledButton("Back");
+        JButton changePasswordButton = ButtonUtils.createStyledButton("Change Password", 12);
+        JButton backButton = ButtonUtils.createStyledButton("Back", 12);
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 10, 10));
         buttonPanel.add(backButton);
         buttonPanel.add(changePasswordButton);
@@ -109,13 +109,4 @@ public class ChangePws {
         frame.setVisible(true);
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
-    }
 }

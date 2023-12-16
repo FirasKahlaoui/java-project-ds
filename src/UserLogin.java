@@ -26,11 +26,11 @@ public class UserLogin {
         passwordField.setBorder(BorderFactory.createTitledBorder("Password"));
         passwordField.setBackground(Color.WHITE);
 
-        JButton connectButton = createStyledButton("Connect");
+        JButton connectButton = ButtonUtils.createStyledButton("Connect", 12);
         connectButton.setBackground(Color.WHITE);
         JLabel signUpText = new JLabel("Don't have an account?");
-        JButton signUpButton = createStyledButton("Sign Up");
-        JButton previousPageButton = createStyledButton("Previous Page");
+        JButton signUpButton = ButtonUtils.createStyledButton("Sign up", 12);
+        JButton previousPageButton = ButtonUtils.createStyledButton("Previous page", 12);
 
         previousPageButton.addActionListener(new ActionListener() {
             @Override
@@ -50,7 +50,7 @@ public class UserLogin {
         connectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String email = emailField.getText();
+                String email = emailField.getText().trim();
                 String password = new String(passwordField.getPassword());
 
                 if (email.length() == 0 || password.length() == 0) {
@@ -99,13 +99,4 @@ public class UserLogin {
     public void setVisible(boolean b) {
     }
 
-    private static JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setPreferredSize(new Dimension(100, 50));
-        return button;
-    }
 }
