@@ -78,25 +78,26 @@ public class ShowMemberSpeciality {
                             JLabel ageLabel = new JLabel("Age: " + rs.getInt("Age"));
                             ageLabel.setFont(new Font("Arial", Font.PLAIN, 14));
 
-                            JButton doneButton = createStyledButton("Done");
-                            doneButton.addActionListener(new ActionListener() {
-                                @Override
-                                public void actionPerformed(ActionEvent e) {
-                                    ShowMemberSpeciality.main(new String[] {});
-                                    frame.dispose();
-                                }
-                            });
-
                             memberPanel.add(titleLabel);
                             memberPanel.add(nameLabel);
                             memberPanel.add(lastNameLabel);
                             memberPanel.add(emailLabel);
                             memberPanel.add(ageLabel);
-                            memberPanel.add(doneButton);
 
                             panel.add(memberPanel);
                             counter++;
                         }
+                        JButton doneButton = createStyledButton("Done");
+                        doneButton.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                ShowMemberSpeciality.main(new String[] {});
+                                frame.dispose();
+                            }
+                        });
+                        doneButton
+                                .setMaximumSize(new Dimension(Integer.MAX_VALUE, doneButton.getPreferredSize().height));
+                        panel.add(doneButton);
 
                         JScrollPane scrollPane = new JScrollPane(panel,
                                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,

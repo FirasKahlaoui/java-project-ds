@@ -30,6 +30,14 @@ public class AdminDashboard {
             }
         });
 
+        showUserInfo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ShowUserInfoCaller.main(new String[] {});
+                frame.dispose();
+            }
+        });
+
         showClub.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
