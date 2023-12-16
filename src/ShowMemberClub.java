@@ -103,24 +103,25 @@ public class ShowMemberClub {
                             }
 
                         }
-                        JButton doneButton = createStyledButton("Done");
-                        doneButton.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                ShowMemberClub.main(new String[] {});
-                                frame.dispose();
-                            }
-                        });
-                        doneButton
-                                .setMaximumSize(new Dimension(Integer.MAX_VALUE, doneButton.getPreferredSize().height));
-                        panel.add(doneButton);
+
                         JScrollPane scrollPane = new JScrollPane(panel,
                                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+                        JButton doneButton = createStyledButton("Done");
+
                         JFrame infoFrame = new JFrame("Member Information");
                         infoFrame.setSize(400, 240);
                         infoFrame.add(scrollPane);
+                        infoFrame.add(doneButton, BorderLayout.SOUTH);
                         infoFrame.setVisible(true);
+
+                        doneButton.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                infoFrame.dispose();
+                            }
+                        });
 
                         connection.close();
                     } catch (SQLException ex) {
