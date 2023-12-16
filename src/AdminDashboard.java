@@ -11,10 +11,11 @@ public class AdminDashboard {
         frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(6, 1));
+        panel.setLayout(new GridLayout(7, 1));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JButton addUserButton = createStyledButton("Add User");
+        JButton showUserInfo = createStyledButton("Show User Info");
         JButton showClub = createStyledButton("Show Clubs Members");
         JButton showSpeciality = createStyledButton("Show Speciality Members");
         JButton changeUserPws = createStyledButton("Change User Password");
@@ -25,6 +26,14 @@ public class AdminDashboard {
             @Override
             public void actionPerformed(ActionEvent e) {
                 AddUser.main(new String[] {});
+                frame.dispose();
+            }
+        });
+
+        showClub.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ShowMemberClub.main(new String[] {});
                 frame.dispose();
             }
         });
@@ -62,6 +71,7 @@ public class AdminDashboard {
         });
 
         panel.add(addUserButton);
+        panel.add(showUserInfo);
         panel.add(showClub);
         panel.add(showSpeciality);
         panel.add(changeUserPws);
