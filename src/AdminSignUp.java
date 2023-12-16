@@ -2,11 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class AdminSignUp {
     public static void main(String[] args) {
@@ -77,7 +73,6 @@ public class AdminSignUp {
                 PreparedStatement stmt = null;
 
                 try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
 
                     try {
                         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management", "root", "");
@@ -122,11 +117,7 @@ public class AdminSignUp {
                     JOptionPane.showMessageDialog(frame, "User signed up successfully.");
                     AdminLogin.main(new String[] {});
                     frame.dispose();
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(frame, "Error loading the JDBC driver.");
                 } finally {
-                    // Close the connection
                     if (conn != null) {
                         try {
                             conn.close();

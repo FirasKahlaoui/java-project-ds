@@ -1,8 +1,5 @@
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 
 public class ButtonUtils {
     public static JButton createStyledButton(String text, int size) {

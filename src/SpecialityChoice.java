@@ -16,7 +16,7 @@ public class SpecialityChoice {
         frame.setSize(400, 240);
         frame.getContentPane().setBackground(Color.WHITE);
 
-        JPanel panel = new JPanel(new GridLayout(4, 2, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
         panel.add(new JLabel("Age:"));
         JTextField ageTextField = new JTextField();
         panel.add(ageTextField);

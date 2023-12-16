@@ -2,11 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserSignUp {
     public static void main(String[] args) {
@@ -39,8 +35,8 @@ public class UserSignUp {
 
         JLabel loginText = new JLabel("Already have an account?");
 
-        JButton signUpButton = ButtonUtils.createStyledButton("Sign Up",12);
-        JButton LoginPageButton = ButtonUtils.createStyledButton("Login Page",12);
+        JButton signUpButton = ButtonUtils.createStyledButton("Sign Up", 12);
+        JButton LoginPageButton = ButtonUtils.createStyledButton("Login Page", 12);
 
         LoginPageButton.addActionListener(new ActionListener() {
             @Override
@@ -99,7 +95,6 @@ public class UserSignUp {
                 PreparedStatement stmt = null;
 
                 try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
                     try {
                         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management", "root", "");
                     } catch (SQLException ex) {
@@ -144,9 +139,6 @@ public class UserSignUp {
                     UserLogin.main(new String[] {});
                     frame.dispose();
 
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(frame, "Error loading the JDBC driver.");
                 } finally {
                     if (conn != null) {
                         try {

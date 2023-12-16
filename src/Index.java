@@ -21,7 +21,7 @@ public class Index {
         title.setForeground(Color.BLACK);
         title.setBackground(Color.WHITE);
 
-        JLabel authors = new JLabel("By : Firas Kahlaoui & Yasmine Zatour  : 2 BD 1");
+        JLabel authors = new JLabel("By : Firas Kahlaoui & Yasmine Zaatour  : 2 BD 1");
         authors.setFont(new Font("Arial", Font.BOLD, 14));
         authors.setAlignmentX(Component.CENTER_ALIGNMENT);
         authors.setForeground(Color.BLACK);

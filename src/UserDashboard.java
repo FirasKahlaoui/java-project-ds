@@ -1,8 +1,5 @@
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDashboard {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/club_management";
