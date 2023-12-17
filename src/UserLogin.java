@@ -32,7 +32,7 @@ public class UserLogin {
         previousPageButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Index.main(new String[] {});
+                MainInterface.main(new String[] {});
                 frame.dispose();
             }
         });

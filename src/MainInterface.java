@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Index {
+public class MainInterface {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Club Managing System ");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
