@@ -14,11 +14,12 @@ public class UserLogin {
         JFrame frame = new JFrame("CMS : User Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 320);
-        frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+        frame.getContentPane().setBackground(Color.WHITE);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 1));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        panel.setBackground(Color.WHITE);
 
         JTextField emailField = new JTextField(20);
         emailField.setBorder(BorderFactory.createTitledBorder("Email Address"));
@@ -28,7 +29,6 @@ public class UserLogin {
         passwordField.setBackground(Color.WHITE);
 
         JButton connectButton = ButtonUtils.createStyledButton("Connect", 12);
-        connectButton.setBackground(Color.WHITE);
         JLabel signUpText = new JLabel("Don't have an account?");
         JButton signUpButton = ButtonUtils.createStyledButton("Sign up", 12);
         JButton previousPageButton = ButtonUtils.createStyledButton("Previous page", 12);

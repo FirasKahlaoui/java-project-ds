@@ -14,22 +14,22 @@ public class MainInterface {
         JFrame frame = new JFrame("Club Managing System ");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
-        frame.getContentPane().setBackground(Color.decode("#5e5e5e"));
+        frame.getContentPane().setBackground(Color.WHITE);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(7, 1));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        panel.setBackground(Color.decode("#5e5e5e"));
+        panel.setBackground(Color.WHITE);
 
         JLabel title = new JLabel("Welcome to the Club Managing System");
         title.setFont(new Font("Arial", Font.BOLD, 18));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        title.setForeground(Color.WHITE);
+        title.setForeground(Color.decode("#333333"));
 
         JLabel authors = new JLabel("By : Firas Kahlaoui & Yasmine Zaatour  : 2 BD 1");
         authors.setFont(new Font("Arial", Font.BOLD, 14));
         authors.setAlignmentX(Component.CENTER_ALIGNMENT);
-        authors.setForeground(Color.WHITE);
+        authors.setForeground(Color.decode("#333333"));
 
         JButton adminButton = ButtonUtils.createStyledButton("Admin", 16);
 

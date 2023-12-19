@@ -10,6 +10,11 @@ import java.sql.*;
 
 public class UserDash {
     public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String userEmail = args[0];
         JFrame frame = new JFrame("CMS : User Dashboard");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,6 +22,7 @@ public class UserDash {
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 2, 10, 10));
+        panel.setBackground(Color.WHITE);
 
         JButton showData = ButtonUtils.createStyledButton("User Info", 12);
         JButton showClub = ButtonUtils.createStyledButton("Show Clubs", 12);
