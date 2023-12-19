@@ -10,7 +10,7 @@ import java.sql.*;
 
 public class UserSignUp {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("CMS : User Login");
+        JFrame frame = new JFrame("CMS : User Sign Up");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 500);
         frame.getContentPane().setBackground(Color.LIGHT_GRAY);
