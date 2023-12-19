@@ -2,9 +2,6 @@ import javax.swing.*;
 import java.sql.*;
 
 public class UserDashboard {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/club_management";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "";
 
     public static void main(String[] args) {
         try {
@@ -30,7 +27,7 @@ public class UserDashboard {
 
     private static boolean loadUserData(String userEmail) {
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            Connection conn = DatabaseConnection.getConnection();
             String sql = "SELECT Age, Speciality FROM user WHERE Mail_Address = ?";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, userEmail);

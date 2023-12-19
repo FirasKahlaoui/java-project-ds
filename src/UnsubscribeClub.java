@@ -23,8 +23,7 @@ public class UnsubscribeClub {
         panel.add(clubComboBox);
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                    "root", "");
+            Connection connection = DatabaseConnection.getConnection();
 
             PreparedStatement ps = connection
                     .prepareStatement("SELECT CIN FROM user WHERE Mail_Address = ?");
@@ -62,8 +61,7 @@ public class UnsubscribeClub {
             String selectedClub = (String) clubComboBox.getSelectedItem();
             if (selectedClub != null) {
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                            "root", "");
+                    Connection connection = DatabaseConnection.getConnection();
 
                     PreparedStatement ps = connection
                             .prepareStatement("SELECT CIN FROM user WHERE Mail_Address = ?");

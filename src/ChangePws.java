@@ -59,8 +59,7 @@ public class ChangePws {
                 }
 
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                            "root", "");
+                    Connection connection = DatabaseConnection.getConnection();
 
                     PreparedStatement ps = connection
                             .prepareStatement("SELECT Password FROM user WHERE Mail_Address = ?");

@@ -14,8 +14,7 @@ public class ShowClubs {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                    "root", "");
+            Connection connection = DatabaseConnection.getConnection();
 
             PreparedStatement ps = connection
                     .prepareStatement("SELECT CIN FROM user WHERE Mail_Address = ?");

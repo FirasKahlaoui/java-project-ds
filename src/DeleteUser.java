@@ -32,8 +32,7 @@ public class DeleteUser {
                 }
 
                 try {
-                    Connection connection = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/club_management", "root", "");
+                    Connection connection = DatabaseConnection.getConnection();
                     PreparedStatement ps = connection.prepareStatement(
                             "SELECT * FROM user WHERE CIN = ?");
                     ps.setString(1, cin);

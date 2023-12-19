@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 public class SpecialityChoice {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/club_management";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "";
 
     public static void main(String[] args) {
         String userEmail = args[0];
@@ -82,7 +79,7 @@ public class SpecialityChoice {
 
     private static void updateUserData(String userEmail, int age, String speciality) {
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            Connection conn = DatabaseConnection.getConnection();
             String updateSql = "UPDATE user SET Age = ?, Speciality = ? WHERE Mail_Address = ?";
             try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
                 updateStmt.setInt(1, age);

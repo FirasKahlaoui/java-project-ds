@@ -62,8 +62,7 @@ public class ClubChoice {
                 }
 
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                            "root", "");
+                    Connection connection = DatabaseConnection.getConnection();
 
                     PreparedStatement ps = connection.prepareStatement("SELECT CIN FROM user WHERE Mail_Address = ?");
                     ps.setString(1, userEmail);

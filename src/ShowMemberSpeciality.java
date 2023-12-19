@@ -49,8 +49,7 @@ public class ShowMemberSpeciality {
                     JOptionPane.showMessageDialog(frame, "Please select a speciality");
                 } else {
                     try {
-                        Connection connection = DriverManager.getConnection(
-                                "jdbc:mysql://localhost:3306/club_management", "root", "");
+                        Connection connection = DatabaseConnection.getConnection();
                         PreparedStatement ps = connection.prepareStatement(
                                 "SELECT Name, LastName, Mail_Address, Age FROM user WHERE Speciality = ?");
                         ps.setString(1, selectedSpeciality);

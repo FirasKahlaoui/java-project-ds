@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-
 public class AdminLogin {
     public static void main(String[] args) {
         JFrame frame = new JFrame("CMS : Admin Login");
@@ -61,8 +60,7 @@ public class AdminLogin {
                 }
 
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                            "root", "");
+                    Connection connection = DatabaseConnection.getConnection();
                     PreparedStatement statement = connection
                             .prepareStatement("SELECT * FROM admin WHERE Email_Address = ? AND Password = ?");
                     statement.setString(1, email);

@@ -80,10 +80,7 @@ public class UserDash {
 
                 if (response == JOptionPane.YES_OPTION) {
                     try {
-                        Connection connection = DriverManager.getConnection(
-                                "jdbc:mysql://localhost:3306/club_management",
-                                "root", "");
-
+                        Connection connection = DatabaseConnection.getConnection();
                         PreparedStatement ps = connection
                                 .prepareStatement("DELETE FROM user WHERE Mail_Address = ?");
                         ps.setString(1, userEmail);

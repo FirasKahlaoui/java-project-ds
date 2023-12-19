@@ -61,8 +61,7 @@ public class UserLogin {
                 }
 
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                            "root", "");
+                    Connection connection = DatabaseConnection.getConnection();
                     PreparedStatement statement = connection
                             .prepareStatement("SELECT * FROM user WHERE Mail_Address = ? AND Password = ?");
                     statement.setString(1, email);

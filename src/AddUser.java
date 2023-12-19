@@ -104,13 +104,10 @@ public class AddUser {
                 }
 
                 Connection conn = null;
-                PreparedStatement stmt = null;
-
                 try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
 
                     try {
-                        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management", "root", "");
+                        conn = DatabaseConnection.getConnection();
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(frame, "Error connecting to the database.");
@@ -118,7 +115,7 @@ public class AddUser {
                     }
                     String sql = "SELECT * FROM user WHERE CIN = ? OR Mail_Address = ?";
                     try {
-                        stmt = conn.prepareStatement(sql);
+                        PreparedStatement stmt = conn.prepareStatement(sql);
                         stmt.setString(1, cin);
                         stmt.setString(2, email);
                         ResultSet rs = stmt.executeQuery();
@@ -135,7 +132,7 @@ public class AddUser {
                     }
                     sql = "INSERT INTO user (CIN, Name, LastName, Mail_Address, Password,Age,Speciality) VALUES (?,?,?,?,?,?,?)";
                     try {
-                        stmt = conn.prepareStatement(sql);
+                        PreparedStatement stmt = conn.prepareStatement(sql);
                         stmt.setString(1, cin);
                         stmt.setString(2, firstName);
                         stmt.setString(3, lastName);
@@ -154,9 +151,6 @@ public class AddUser {
                     AdminDashboard.main(new String[] {});
                     frame.dispose();
 
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(frame, "Error loading the JDBC driver.");
                 } finally {
 
                     if (conn != null) {

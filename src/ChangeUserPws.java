@@ -46,15 +46,13 @@ public class ChangeUserPws {
 
                 } else {
                     try {
-                        Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection(
-                                "jdbc:mysql://localhost:3306/club_management", "root", "");
-                        PreparedStatement ps = con.prepareStatement(
+                        Connection conn = DatabaseConnection.getConnection();
+                        PreparedStatement ps = conn.prepareStatement(
                                 "SELECT * FROM user WHERE CIN=?");
                         ps.setString(1, cin);
                         ResultSet rs = ps.executeQuery();
                         if (rs.next()) {
-                            ps = con.prepareStatement(
+                            ps = conn.prepareStatement(
                                     "update user set Password=? where CIN=?");
                             ps.setString(1, password);
                             ps.setString(2, cin);
@@ -69,7 +67,7 @@ public class ChangeUserPws {
                         } else {
                             JOptionPane.showMessageDialog(frame, "User does not exist");
                         }
-                        con.close();
+                        conn.close();
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }

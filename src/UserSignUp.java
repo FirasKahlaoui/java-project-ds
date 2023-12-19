@@ -96,7 +96,7 @@ public class UserSignUp {
 
                 try {
                     try {
-                        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management", "root", "");
+                        conn = DatabaseConnection.getConnection();
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(frame, "Error connecting to the database.");

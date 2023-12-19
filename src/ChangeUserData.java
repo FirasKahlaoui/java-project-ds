@@ -36,8 +36,7 @@ public class ChangeUserData {
         specialityComboBox.setBorder(BorderFactory.createTitledBorder("Speciality :"));
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                    "root", "");
+            Connection connection = DatabaseConnection.getConnection();
 
             PreparedStatement ps = connection
                     .prepareStatement("SELECT CIN, Name, LastName, Age, Speciality FROM user WHERE Mail_Address = ?");
@@ -99,9 +98,7 @@ public class ChangeUserData {
                     return;
                 }
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/club_management",
-                            "root", "");
-
+                    Connection connection = DatabaseConnection.getConnection();
                     PreparedStatement ps = connection
                             .prepareStatement(
                                     "UPDATE user SET CIN = ?, Name = ?, LastName = ?, Age = ?, Speciality = ? WHERE Mail_Address = ?");
