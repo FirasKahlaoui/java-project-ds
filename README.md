@@ -2,6 +2,19 @@
 
 The Club Management System is a Java-based application that allows both administrators and users to efficiently manage club memberships and user accounts.
               <img width="1000" alt="Main_Interface" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/966fbe2a-780d-43e3-aaf5-c4656729c079">
+              ### Admin Dashboard
+
+- **Sign Up and Login:**
+  - Administrators can sign up and log in to the admin dashboard.
+
+- **User Management:**
+  - Add a new user to the database.
+  - View user data.
+  - Show members by club or specialty.
+  - Change user passwords.
+
+- **User Deletion:**
+  - Administrators can delete user accounts.
 ### User Dashboard
 
 - **Sign Up and Login:**
@@ -16,17 +29,3 @@ The Club Management System is a Java-based application that allows both administ
 
 - **Password Management:**
   - Users can change their passwords for added security.
-### Admin Dashboard
-
-- **Sign Up and Login:**
-  - Administrators can sign up and log in to the admin dashboard.
-
-- **User Management:**
-  - Add a new user to the database.
-  - View user data.
-  - Show members by club or specialty.
-  - Change user passwords.
-
-- **User Deletion:**
-  - Administrators can delete user accounts.
-
