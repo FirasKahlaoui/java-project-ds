@@ -10,6 +10,7 @@ The Club Management System is a Java-based application that allows both administ
     
 <img alt="Admin Login" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/a63ec0f7-3422-4d8a-925f-d0b41c18480f" width="100%">
 <img alt="Admin Dashboard" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/b2112ac1-247d-4036-aca6-bd3f8e07877e" width="100%">
+
 - **User Management:**
   - Add a new user to the database.
   
