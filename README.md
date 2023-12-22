@@ -7,11 +7,13 @@ The Club Management System is a Java-based application that allows both administ
 
 - **Sign Up and Login:**
   - Administrators can sign up and log in to the admin dashboard.
+    
 <img alt="Admin Login" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/a63ec0f7-3422-4d8a-925f-d0b41c18480f" width="100%">
 <img alt="Admin Dashboard" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/b2112ac1-247d-4036-aca6-bd3f8e07877e" width="100%">
 - **User Management:**
   - Add a new user to the database.
-    <img alt="Add New User" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/c47e893a-37bf-43bb-8ae5-4e294ba26a1a" width="100%">
+  
+  <img alt="Add New User" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/c47e893a-37bf-43bb-8ae5-4e294ba26a1a" width="100%">
 
   - View user data.
     <img alt="View User Data 1" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/3ec2097d-09f8-43e9-b680-d18e3ae3877a" width="100%">
@@ -38,12 +40,14 @@ The Club Management System is a Java-based application that allows both administ
 
 - **Sign Up and Login:**
   - New users can sign up, while existing users can log in to access their dashboards.
+    
 <img alt="User Sign Up" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/95578a11-0b9f-4786-865a-eda0b99be070" width="100%">
 
 <img alt="User Login" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/cc8a0557-b707-4ffb-805c-07c8cbeae24c" width="100%">
 
 - **User Account Info:**
   - Users can view and update their account information.
+    
 <img alt="User Account Info 1" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/b902ad0a-2faf-4be0-a40e-389ff785e7e8" width="100%">
 
 <img alt="User Account Info 2" src="https://github.com/FirasKahlaoui/JavaProjectDS/assets/93373607/b902ad0a-2faf-4be0-a40e-389ff785e7e8" width="100%">
